@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, flash, Response
+from flask import Flask, render_template, request, redirect, url_for, flash, Response, jsonify
 from werkzeug import secure_filename
 import os
 import csv
@@ -75,11 +75,14 @@ def upload_file():
         #take out any edges with value 0
         sankey_data=eliminate_zero_values(sankey_data)
         #turn data into json strings for passing on to javascript
-     
-        sankey_data=to_json(sankey_data)
-        keys=to_json(keys)
-        time=to_json(time)
-        scaling=to_json(scaling)     
+        
+        #sankeyJSON=[]
+        #for item in sankey_data:
+        #    sankeyJSON.append(to_json(item))
+        #sankey_data=jsonify(sankey=sankeyJSON)
+        #keys=to_json(keys)
+        #time=to_json(time)
+        #scaling=to_json(scaling)     
         
         #delete file in temp_data
         #os.remove(filepath)
@@ -89,10 +92,9 @@ def upload_file():
     if all(series == -1 for series in data):
         flash ('No suitable data found, please try another file')
         return redirect(request.url)
-
+    
     return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
     return render_template('upload.html')
 
-app.run()
 #if __name__ == '__main__':
 #    app.run(debug = True)

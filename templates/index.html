@@ -1,10 +1,10 @@
 {% extends "layout.html" %}
 {% block body %}
 <script type="text/javascript">
-   sankey_values=JSON.parse('{{sankey_data|safe}}');
-   categories=JSON.parse('{{keys|safe}}');
-   scale=JSON.parse('{{scaling|safe}}');
-   time=JSON.parse('{{time|safe}}');
+   sankey_values=JSON.parse('{{sankey_data|tojson|safe}}');    
+   categories=JSON.parse('{{keys|tojson|safe}}');
+   scale=JSON.parse('{{scaling|tojson|safe}}');
+   time=JSON.parse('{{time|tojson|safe}}');
 </script>
 
 <!--colours for sankey-->
