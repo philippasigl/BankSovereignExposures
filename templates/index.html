@@ -2,9 +2,9 @@
 {% block body %}
 <script type="text/javascript">
    sankeyJSON='{{sankey_data|safe}}';
-   categories={{keys|safe}};
-   scale={{scaling|safe}};
-   time={{time|safe}};
+   categoriesJSON="{{keys|safe}}";
+   scaleJSON="{{scaling|safe}}";
+   timeJSON="{{time|safe}}";
 </script>
 
 <!--colours for sankey-->
