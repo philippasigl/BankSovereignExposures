@@ -1,0 +1,55 @@
+<head>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}"/>
+    <!--<link rel="stylesheet" href="https://unpkg.com/react-vis/dist/style.css">-->
+    <!--react vis stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <!--own stylesheet-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styleCustom.css') }}">
+    <title>Data Explorer</title>
+</head>
+  
+  <body>
+      <h2 id="print">Supervisory Data Explorer</h2>
+      <script type="text/javascript">
+        values={{data|safe}};
+        categories={{keys|safe}};
+        console.log(categories);
+        d=[];
+        xVals=[];
+       
+       //array for x-axis values 
+       for (i=0;i<values.length;i++) {
+         if(values[i].cat == values[0].cat) {
+            xVals.push(values[i].x);
+         }
+       }
+   
+      //array used for lines of the structure d[category][time].x/y/cat
+       t=0, round=0; 
+       for (j=0;j<(categories.length-1);j++) {
+         d[j]=[];
+           for (i=0;i<(xVals.length);i++) {
+             row={};
+             row.y=values[t].y;
+             row.x=xVals[i];
+             d[j].push(row);
+             t=t+categories.length-1;       
+           }
+           round++;
+           t=round;
+       }
+
+       //array for categories without x-axis
+       cats=[];
+       for (j=1;j<(categories.length-1);j++) {
+         cats.push(categories[j])
+       }
+       console.log(categories);
+       //address d like d[1][1].x
+       </script>
+
+    <!--reactEntry comes from app.js-->
+    <div id="reactEntry" align="center"></div>
+    <!-- Attach React components -->
+    <script type="text/javascript" src="{{ url_for('static', filename='bundle.js') }}"></script>
+  </body>

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block body %}
+<script type="text/javascript">
+   sankey_values={{sankey_data|safe}}
+   categories={{keys|safe}}
+   scale={{scaling|safe}}
+   time={{time|safe}}
+</script>
+
+
+<!--colours for sankey-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
+<!--data processing; returns -1 for all invalid datasets-->
+<script type="text/javascript" src="{{ url_for('static', filename='js/sankey.js') }}"></script>
+
+
+<!--<div id="reactEntry" align="center"></div>-->
+<div id="reactEntry" align="center"></div>
+<!-- Attach React components -->
+<script type="text/javascript" src="{{ url_for('static', filename='bundle.js') }}"></script>
+{% endblock %}
