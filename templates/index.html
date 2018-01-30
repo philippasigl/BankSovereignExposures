@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block body %}
 <script type="text/javascript">
-   sankey_values={{sankey_data|safe}};
+   sankeyJSON='{{sankey_data|safe}}';
    categories={{keys|safe}};
    scale={{scaling|safe}};
    time={{time|safe}};
