@@ -1,6 +1,5 @@
 
-(function() {
-sankey_values=JSON.parse(sankeyJSON)
+(function() { 
 //check whether valid data
 if (sankey_values === -1) {
     return;
