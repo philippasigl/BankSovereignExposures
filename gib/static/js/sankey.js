@@ -5,7 +5,6 @@
 if (sankey_values === -1) {
     return;
 }
-
 //add all nodes from the source list and define their keys as "source + level"
 nodes=[]
 for (i=0;i<sankey_values.length;i++) {
@@ -111,7 +110,10 @@ uniqueNodes.filter(function(item){
 uniqueCountries.forEach(addColor)
 
 addNodeColor = (node,idx) => {
+    console.log(node)
+    console.log(uniqueCountries)
     var i= uniqueCountries.findIndex( x => x.name == node.name)
+    console.log(i)
     node.color = uniqueCountries[i].color
 }
 

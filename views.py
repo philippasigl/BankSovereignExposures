@@ -86,7 +86,7 @@ def upload_file():
     if all(series == -1 for series in data):
         flash ('No suitable data found, please try another file')
         return redirect(request.url)
-        
+
     return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
     return render_template('upload.html')
 

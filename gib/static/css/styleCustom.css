@@ -1,0 +1,41 @@
+/* custom styles */
+
+html {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 10;
+}
+
+h2 {
+    background-color: #222;
+    height: 30px;
+    padding: 10px;
+    color: white;
+  }
+
+#uploadBox {
+    background-color: white;
+    height: 90px;
+    padding: 10px;
+    color: #222;
+}  
+body {
+    background-color:#dfdfdf;
+    padding: 0px;
+  }
+
+.center-aligned-controls {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    width: 100%
+} 
+.showcase-button {
+    background: white;
+    border: thin solid #333;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 10;
+    font-weight: 600;
+    padding: 5px 10px;
+}  

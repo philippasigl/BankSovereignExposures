@@ -1,12 +1,11 @@
 {% extends "layout.html" %}
 {% block body %}
 <script type="text/javascript">
-   sankey_values={{sankey_data|safe}}
-   categories={{keys|safe}}
-   scale={{scaling|safe}}
-   time={{time|safe}}
+   sankey_values={{sankey_data|safe}};
+   categories={{keys|safe}};
+   scale={{scaling|safe}};
+   time={{time|safe}};
 </script>
-<h2>Index is loading</h2>
 
 <!--colours for sankey-->
 <script type="text/javascript" src="{{ url_for('static', filename='js/theme.js') }}"></script>
