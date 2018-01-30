@@ -1,6 +1,5 @@
 
-(function() {
-
+(function() { 
 //check whether valid data
 if (sankey_values === -1) {
     return;
