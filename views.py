@@ -75,7 +75,10 @@ def upload_file():
         #take out any edges with value 0
         sankey_data=eliminate_zero_values(sankey_data)
         #turn data into json strings for passing on to javascript
+     
         sankey_data=to_json(sankey_data)
+        keys=to_json(keys)
+        time=to_json(time)
         scaling=to_json(scaling)     
         
         #delete file in temp_data
@@ -90,5 +93,6 @@ def upload_file():
     return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
     return render_template('upload.html')
 
+app.run()
 #if __name__ == '__main__':
 #    app.run(debug = True)
