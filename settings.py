@@ -16,7 +16,8 @@ def parent_dir(path):
 PROJECT_ROOT = parent_dir(APP_DIR)
 # In order to deploy to Github pages, you must build the static files to
 # the project root
-FREEZER_DESTINATION = PROJECT_ROOT
+FREEZER_DESTINATION=PROJECT_ROOT
+#FREEZER_DESTINATION = PROJECT_ROOT
 # Since this is a repo page (not a Github user page),
 # we need to set the BASE_URL to the correct url as per GH Pages' standards
 #FREEZER_BASE_URL = "http://127.0.0.1:5000/"

@@ -90,6 +90,5 @@ def upload_file():
     return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
     return render_template('upload.html')
 
-app.run(debug=True)
 #if __name__ == '__main__':
 #    app.run(debug = True)
