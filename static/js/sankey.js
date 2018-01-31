@@ -4,7 +4,7 @@
 if (sankey_values === -1) {
     return;
 }
-
+console.log(sankey_values)
 //add all nodes from the source list and define their keys as "source + level"
 nodes=[]
 for (i=0;i<sankey_values.length;i++) {

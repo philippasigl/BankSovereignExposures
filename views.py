@@ -86,15 +86,19 @@ def upload_file():
         
         #delete file in temp_data
         #os.remove(filepath)
-
+       
         #redirect if no suitable data
         data = [sankey_data]
     if all(series == -1 for series in data):
         flash ('No suitable data found, please try another file')
         return redirect(request.url)
     
+    
     return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
     return render_template('upload.html')
+
+app.run()
+
 
 #if __name__ == '__main__':
 #    app.run(debug = True)

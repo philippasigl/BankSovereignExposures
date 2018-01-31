@@ -2,7 +2,14 @@
 import MultiPeriodCustomSankey from './multiPeriodCustomSankey';
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
+import jquery from 'jquery/src/jquery';
 
+getPythonHello => {
+    $.get(window.location.href + 'hello', (data) => {  
+      console.log(data);
+      this.personaliseGreeting(data);
+    });
+  }
 
 class App extends Component {
     constructor(props) {
