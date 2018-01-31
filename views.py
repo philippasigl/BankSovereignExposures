@@ -9,18 +9,18 @@ from transform1 import *
 #to delete
 import time as t
 
-app = Flask(__name__)
-app.secret_key = 'some_secret'
+#app = Flask(__name__)
+#app.secret_key = 'some_secret'
 
-UPLOAD_FOLDER ='dummy_data'
+
 ALLOWED_EXTENSIONS = set(['csv'])
-app.config['UPLOAD_FOLDER'] = 'sovereign_exposures.csv'
+#app.config['UPLOAD_FOLDER'] = 'sovereign_exposures.csv'
 
 def allowed_file(filename):
     return '.' in filename and \
            filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
 
-@app.route('/')
+#@app.route('/')
 def upload_file():        
     print("started python")
     #if a post request has been made load, check whether csv and save in temp_data
@@ -32,7 +32,7 @@ def upload_file():
     #    #if not allowed_file(file.filename):
     #    flash('Not a csv file')
     #    return redirect(request.url)
-     
+    UPLOAD_FOLDER ='dummy_data' 
     filename = 'sovereign_exposures.csv'
     #file.save(os.path.join(UPLOAD_FOLDER, filename))
     filepath = os.path.join(UPLOAD_FOLDER, filename)
@@ -93,12 +93,34 @@ def upload_file():
         flash ('No suitable data found, please try another file')
         return redirect(request.url)
     
-    
-    return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
-    return render_template('upload.html')
+    #save produced data
+    UPLOAD_FOLDER ='dummy_data' 
+    filename = 'data.json'
+    #file.save(os.path.join(UPLOAD_FOLDER, filename))
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    print(filepath)
+    with open (filepath,'w') as file:
+        json.dump(sankey_data,file)
+    filename = 'time.json'
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    print(filepath)
+    with open (filepath,'w') as file:
+        json.dump(time,file)
+    filename = 'keys.json'
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    print(filepath)
+    with open (filepath,'w') as file:
+        json.dump(keys,file)
+    filename = 'scaling.json'
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    print(filepath)
+    with open (filepath,'w') as file:
+        json.dump(scaling,file)
+    #return render_template('index.html', sankey_data=sankey_data, keys=keys, scaling=scaling, time=time)
+    #return render_template('upload.html')
 
-app.run()
-
+if __name__ == "__main__":
+    upload_file()
 
 #if __name__ == '__main__':
 #    app.run(debug = True)
